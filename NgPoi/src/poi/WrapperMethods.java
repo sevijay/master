@@ -70,5 +70,23 @@ public class WrapperMethods {
 		}
 
 	}
+	
+	/*
+	 * intent of this method is to enter a text to a web-element using name
+	 * locator
+	 */
+	public void setValueByClass(String class1, String data) {
+		try {
+			driver.findElement(By.className(class1)).sendKeys(data);
+			ExcelReporter.reortStep("The ELement with name: " + class1 + "is found",
+					"PASS");
+
+		} catch (WebDriverException e) {
+			ExcelReporter.reortStep("The ELement with name: " + class1
+					+ "is not found", "FAIL");
+
+		}
+
+	}
 
 }
